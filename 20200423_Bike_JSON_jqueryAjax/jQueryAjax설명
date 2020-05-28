@@ -1,0 +1,17 @@
+jQuery ajax 사용하기 
+1. jquery.js 작성 linked, CDN 방식이있음
+2. 문법
+ $.ajax({
+ 	url:, -> 호출될 주소(./ajaxCTRL.do 로직 처리)
+ 	method:, -> get, poet, delete, trace, put ...
+ 	contentType:, -> 서버에 데이터를 보낼때 content 헤더 정보를 application/json
+ 	data;, -> 서버에 보내는 데이터 데이커
+ 	dateType :, 반환되는 타입/ 서버에서 처리된 데이터의 타입 text, html, json, javascript, jsoup(jQuery 1.2이상 버전만 가능)
+ 	async:, 동기식인지 비동기식인지 판단을 해줌
+ 	success: function(obj 성공하면 자동으로 바인딩 해줌){}, "callback함수가" 성공 했다면 실행
+ 	error: function(e){}  "callback함수가" 에러가 발생 했을때
+ });
+ 
+ 2-1 url
+ HttpServlet Service -> doGet(HttpServletRequest req, HttpServletResponse resp)
+ -> 로직처리 -> Java객체 -> JSON {"",""} -> resp.getWrite().println() String{"",""} 

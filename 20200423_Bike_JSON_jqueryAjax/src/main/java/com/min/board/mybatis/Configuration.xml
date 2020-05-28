@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<properties resource="properties/db.properties"/>
+	
+<!-- 	<settings> -->
+<!-- 		<setting name="cacheEnabled" value="true"/> -->
+<!-- 		<setting name="lazyloadingEnabled" value="true"/> -->
+<!-- 		<setting name="jdbsTypeForNull" value="null"/> -->
+<!-- 		<setting name="mapUnderscoreToCamelCase" value="true"/> -->
+<!-- 	</settings> -->
+	
+	
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${user}"/>
+				<property name="password" value="${pw}"/>
+				<!-- Mybatis : Waiting as long as 20000 milliseconds for connection. 에러문제 해결 -->
+				<!-- 반복되는 쿼리를 실행 할 경우 발생 함 아래 프로퍼티 값을 추가 https://mybatis.org/mybatis-3/ko/configuration.html 검색 -->
+				<property name="poolMaximumActiveConnections" value="50"/>
+				<property name="poolMaximumIdleConnections" value="50"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/min/board/sqls/bike.xml"/>
+	</mappers>
+	
+</configuration>
+
+
+
+
+
+
+
+
+
